@@ -487,8 +487,8 @@ package main
 import (
 	"math"
 
-	"github.com/maseology/goHydro/porousmedia"
-	"github.com/maseology/goHydro/profile"
+	pm "github.com/maseology/goHydro/porousmedia"
+	vsf "github.com/maseology/goVSF"
 	"gonum.org/v1/plot"
 	"gonum.org/v1/plot/plotter"
 	"gonum.org/v1/plot/plotutil"
@@ -499,9 +499,9 @@ func main() {
 
 	initialSe := 0.3        // initial degree of saturation
 	simulationLength := 24. // hours
-	
+
 	dpth := []float64{0.2, 0.7, 1.} // profile depths
-	pm := []porousmedia.PorousMedium{
+	pm := []pm.PorousMedium{
 		{ // coarser (less clay) textured A horizon
 			Ts: 0.44,
 			Tr: 0.01,
@@ -525,24 +525,27 @@ func main() {
 		},
 	}
 
-	var p profile.Profile
+	var p vsf.Profile
 	p.New(pm, dpth)
-	var ps profile.State
+	var ps vsf.State
 	ps.Initialize(p, initialSe, true)
 
 	t, f, ok := ps.Solve(simulationLength)
-	linePoints("flux.png", t, f)
+	linePoints("flux.png", "infiltration rate", "time (s)", "rate (m/s)", t, f)
 	if ok {
 		w, z := ps.WaterContentProfile()
-		linePoints("wcp.png", w, z)
+		linePoints("wcp.png", "water content", "water content (-)", "Depth below surface (m)", w, z)
 	}
-
 }
 
-func linePoints(fp string, x, y []float64) {
+func linePoints(fp, nam, xnam, ynam string, x, y []float64) {
 	p := plot.New()
 
-	err := plotutil.AddLinePoints(p, "v1", points(x, y))
+	p.Title.Text = "3-layer soil moisture profile example"
+	p.X.Label.Text = xnam
+	p.Y.Label.Text = ynam
+
+	err := plotutil.AddLinePoints(p, nam, points(x, y))
 	if err != nil {
 		panic(err)
 	}
@@ -569,8 +572,14 @@ func points(x, y []float64) plotter.XYs {
 	}
 	return pts
 }
-
 ```
+
+**output:**
+
+![](fig/flux.png)
+
+![](fig/wcp.png)
+
 
 
 # References

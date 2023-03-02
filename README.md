@@ -163,7 +163,7 @@ $$
 
 By further assuming that the liquid and vapour phases are in equilibrium (i.e., have equal potential and the partial pressure of water has reached its vapour pressure, $e$), according to the ideal gas law, pore-space relative humidity can be determined from liquid potential by (Philip, 1957):
 
-$$ %eq:wp
+$$
 	w_p=\frac{e}{e^*(T_s)}=\frac{q}{q^*(T_s,P)}=\exp{\frac{\omega_w\psi}{RT_s}},
 $$
 
@@ -185,7 +185,9 @@ $$
 	K_v=\frac{\omega_w\eta\rho_aD_aq}{RT_s}\left(\theta_s-\theta\right),
 $$
 
-By combining the flux of water vapour, the Richards equation can be re-stated as (Nov\'ak, 2012): <!-- % pg.71  -->
+By combining the flux of water vapour, the Richards equation can be re-stated as (Nov\'ak, 2012): 
+
+<!-- % pg.71  -->
 
 $$
 	\rho_l\frac{\partial\theta}{\partial t}=\frac{\partial}{\partial z}\left[K(\psi)\left(\frac{\partial\psi}{\partial z}+g\right)+\rho_a D(\theta)\frac{\partial q}{\partial z}\right],
@@ -230,10 +232,10 @@ $$
 vapour flux density to the atmosphere from the gas-filled pores can be written as:
 
 $$
-\begin{align*}
-	f_{v,g} &=\rho_ak_v(q_s-q_a) \\
-	&=\rho_ak_v\left[q_s-w_aq^*(T_a,P_a)\right],
-\end{align*}
+	\begin{align*}
+		f_{v,g} &=\rho_ak_v(q_s-q_a) \\
+		&=\rho_ak_v\left[q_s-w_aq^\ast(T_a,P_a)\right],
+	\end{align*}
 $$
 
 and
@@ -263,7 +265,7 @@ Lastly, the effective mass flux evaporating from the soil surface must account f
 $$
 \begin{align*}
 	f_e &=\left(\theta_s-\theta\right)f_{v,g}+\theta f_{v,l}. \\
-		&=\rho_ak_v\left[\theta_s(q_s-q_a)+\theta(q^*_s-q_s)\right]
+		&=\rho_ak_v\left[\theta_s(q_s-q_a)+\theta(q^\ast_s-q_s)\right]
 \end{align*}
 $$
 

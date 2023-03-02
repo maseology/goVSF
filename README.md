@@ -531,7 +531,11 @@ func main() {
 	ps.Initialize(p, initialSe, true)
 
 	t, f, ok := ps.Solve(simulationLength)
-	linePoints("flux.png", "infiltration rate", "time (s)", "rate (m/s)", t, f)
+	logt := make([]float64, len(t))
+	for i, v := range t {
+		logt[i] = math.Log10(v)
+	}
+	linePoints("flux.png", "infiltration rate", "log time (s)", "rate (m/s)", logt, f)
 	if ok {
 		w, z := ps.WaterContentProfile()
 		linePoints("wcp.png", "water content", "water content (-)", "Depth below surface (m)", w, z)
@@ -551,7 +555,7 @@ func linePoints(fp, nam, xnam, ynam string, x, y []float64) {
 	}
 
 	// Save the plot to a PNG file.
-	if err := p.Save(12*vg.Inch, 4*vg.Inch, fp); err != nil {
+	if err := p.Save(5*vg.Inch, 4*vg.Inch, fp); err != nil {
 		panic(err)
 	}
 }

@@ -144,13 +144,13 @@ $$
 where $D_a$ is coefficient of molecular diffusion of water vapour in air $\approx2.12\times10^{-5}$ m $^2$ s $^{-1}$, and $\eta$ is a dimensionless coefficient characterizing the turbulent diffusion in porous media, $\eta\approx0.66$ (Penman, 1940). Note that the term $\left(\theta_s-\theta\right)$ is included correct for the volume of gas-filled porosity, where vapour flux is occurring. $q$ is the specific humidity (moisture content) of air [kg kg $^{-1}$]:
 
 $$
-	q=\frac{\varepsilon e}{P}=wq^*(T,P),
+	q=\frac{\varepsilon e}{P}=wq^\ast(T,P),
 $$
 
-where $e$ and $P$ are the vapour and total pressures, respectively [kg m $^{-1}$ s $^{-2}$], $\varepsilon$ is the ratio of the molecular weight of water to the molecular weight of air ($\approx 0.622$), $w$ is the relative humidity [--], and $q^*$ is the saturated specific humidity determined using the August-Roche-Magnus-Tetens relationship:
+where $e$ and $P$ are the vapour and total pressures, respectively [kg m $^{-1}$ s $^{-2}$], $\varepsilon$ is the ratio of the molecular weight of water to the molecular weight of air ($\approx 0.622$), $w$ is the relative humidity [--], and $q^\ast$ is the saturated specific humidity determined using the August-Roche-Magnus-Tetens relationship:
 
 $$
-	q^*(T,P)=\frac{0.38}{P}\exp\left(\frac{17.625T}{T+243.04}\right),
+	q^\ast(T,P)=\frac{0.38}{P}\exp\left(\frac{17.625T}{T+243.04}\right),
 $$
 
 where $P$ is in [kPa] and $T$ is in $[^\circ\text{C}]$.
@@ -158,16 +158,16 @@ where $P$ is in [kPa] and $T$ is in $[^\circ\text{C}]$.
 Within a porous medium, assuming isobaric (i.e., $P_\text{pores}\approx P_a$) and isothermal (constant temperature) conditions, the specific humidity gradient can be related to pore-space relative humidity ($w_p$) and soil temperature ($T_s$) by:
 
 $$
-	\frac{dq}{dz}=q^*(T_s,P)\frac{dw_p}{dz}.
+	\frac{dq}{dz}=q^\ast(T_s,P)\frac{dw_p}{dz}.
 $$
 
 By further assuming that the liquid and vapour phases are in equilibrium (i.e., have equal potential and the partial pressure of water has reached its vapour pressure, $e$), according to the ideal gas law, pore-space relative humidity can be determined from liquid potential by (Philip, 1957):
 
 $$
-	w_p=\frac{e}{e^*(T_s)}=\frac{q}{q^*(T_s,P)}=\exp{\frac{\omega_w\psi}{RT_s}},
+	w_p=\frac{e}{e^\ast(T_s)}=\frac{q}{q^\ast(T_s,P)}=\exp{\frac{\omega_w\psi}{RT_s}},
 $$
 
-where the gas constant $R=8.3143$ J mol $^{-1}$ K $^{-1}$, the molecular mass of water $\omega_w=0.01802$ kg mol $^{-1}$, and $e^*$ is the saturated vapour pressure at the temperature of the soil surface $T_s$ [K]. Next, using the chain rule,
+where the gas constant $R=8.3143$ J mol $^{-1}$ K $^{-1}$, the molecular mass of water $\omega_w=0.01802$ kg mol $^{-1}$, and $e^\ast$ is the saturated vapour pressure at the temperature of the soil surface $T_s$ [K]. Next, using the chain rule,
 
 $$
 	\frac{dw_p}{dz}=\frac{dw_p}{d\psi}\frac{d\psi}{dz}=w_p\frac{\omega_w}{RT_s}\frac{d\psi}{dz},
@@ -241,7 +241,7 @@ $$
 and
 
 $$
-	f_{v,l}=\rho_ak_v(q^*(T_s,P_a)-q_a),
+	f_{v,l}=\rho_ak_v(q^\ast(T_s,P_a)-q_a),
 $$
 
 where $w_a$ is the atmospheric relative humidity, $T_a$ is air temperature [K], and $P_a$ is air pressure [Pa = kg m $^{-1}$ s $^{-2}$]. (Note that for water, the units for flux density [kg m $^{-2}$ s $^{-1}$] is equivalent to [mm s $^{-1}$].) The water vapour turbulent transport coefficient can be related to wind speed ($u(z)$) [m s $^{-1}$] using boundary-layer theory: 

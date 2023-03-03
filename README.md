@@ -1,4 +1,4 @@
-# goVSF: Multi-phase Flow in Variably Saturated Porous Media
+# goVSF: Modelling multi-phase flow in variably saturated porous media
 
 a fully-implicit solution to the one-dimensional, unsteady Richards equation of variably saturated flow in porous media with vapour exchange, written in [**_Go_**](https://go.dev/).
 
